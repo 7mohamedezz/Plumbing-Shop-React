@@ -33,7 +33,7 @@ const LocationSection = () => {
                   <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">العنوان</p>
-                    <p className="text-sm text-muted-foreground">الأقصر، مصر، الكرنك الجديد</p>
+                    <p className="text-sm text-muted-foreground">العوامر قبلي، جرجا، محافظة سوهاج</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
