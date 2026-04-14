@@ -4,13 +4,13 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <p className="text-lg font-bold text-background">🔧 معرض أحمد بدوي</p>
+            <p className="text-lg font-bold text-background">🔧 معرض الفتح</p>
             <p className="text-sm mt-1">أدوات صحية وسباكة عالية الجودة.</p>
           </div>
           <div className="text-sm text-center md:text-left">
-            <p>الأقصر، مصر، الكرنك الجديد</p>
+            <p>العوامر قبلي، جرجا، محافظة سوهاج</p>
             <p dir="ltr">+201003771479</p>
-            <p className="mt-2 text-background/50">© {new Date().getFullYear()} معرض أحمد بدوي. جميع الحقوق محفوظة.</p>
+            <p className="mt-2 text-background/50">© {new Date().getFullYear()} معرض الفتح. جميع الحقوق محفوظة.</p>
           </div>
         </div>
       </div>

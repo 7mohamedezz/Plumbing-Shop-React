@@ -12,7 +12,7 @@ const AboutSection = () => {
     <section id="about" className="py-20 bg-card">
       <div className="container">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">لماذا معرض أحمد بدوي؟</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">لماذا معرض الفتح؟</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             نحن أكثر من مجرد معرض — نحن شريكك في السباكة. من الإصلاحات البسيطة إلى المشاريع الكبيرة، نحن هنا لمساعدتك.
           </p>
