@@ -15,8 +15,8 @@ const LocationSection = () => {
           {/* Map */}
           <div className="rounded-lg overflow-hidden border shadow-sm h-[350px] lg:h-auto">
             <iframe
-              title="موقع معرض أحمد بدوي"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.28303283966!2d32.65975377539933!3d25.728152177372966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1449157f8e6240eb%3A0x981b7d63732ce40e!2z2YXYudix2LYg2KfYrdmF2K8g2KjYr9mI2Yog2YTZhNin2K_ZiNin2Kog2KfZhNi12K3ZitmH!5e0!3m2!1sen!2seg!4v1775229655643!5m2!1sen!2seg"
+              title="موقع معرض الفتح"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.7252766320366!2d31.8519499!3d26.3030046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x144f4d5456f6a837%3A0x5b892541312c2fd5!2z2YXYudix2LYg2KfZhNmB2KrYrSDZhNmE2LPZitix2KfZhdmK2YMg2YjYp9mE2KPYr9mI2KfYqiDYp9mE2LXYrdmK2Kk!5e0!3m2!1sen!2seg!4v1776172393325!5m2!1sen!2seg"
               className="w-full h-full min-h-[350px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

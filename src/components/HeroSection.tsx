@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section id="home" className="relative h-[500px] md:h-[600px] overflow-hidden">
       <img
         src={heroImage}
-        alt="معرض أحمد بدوي للأدوات الصحية"
+        alt="معرض الفتح للأدوات الصحية"
         className="absolute inset-0 w-full h-full object-cover"
         width={1920}
         height={1080}

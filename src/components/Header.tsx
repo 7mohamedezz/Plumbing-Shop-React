@@ -18,7 +18,7 @@ const Header = () => {
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b shadow-sm">
         <div className="container flex items-center justify-between h-16">
           <a href="#home" className="text-xl font-extrabold text-primary tracking-tight">
-            🔧 معرض أحمد بدوي
+            🔧 معرض الفتح
           </a>
 
           {/* Desktop nav */}

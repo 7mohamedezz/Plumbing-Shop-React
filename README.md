@@ -1,6 +1,6 @@
 # Plumbing Shop React
 
-Marketing website for "معرض أحمد بدوي" (plumbing and sanitary tools showroom).
+Marketing website for "معرض الفتح" (plumbing and sanitary tools showroom).
 The app is Arabic-first, RTL, mobile-friendly, and focused on converting visitors into direct contact through phone/WhatsApp and store visits.
 
 ## Project Goal
