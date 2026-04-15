@@ -40,11 +40,11 @@ const LocationSection = () => {
                   <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">الهاتف</p>
-                    <p className="text-sm text-muted-foreground" dir="ltr">+201003771479</p>
+                    <p className="text-sm text-muted-foreground" dir="ltr">01000501307</p>
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/201003771479"
+                  href="https://wa.me/201000501307"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 hover:opacity-80 transition-opacity"
@@ -54,7 +54,7 @@ const LocationSection = () => {
                   </svg>
                   <div>
                     <p className="font-medium text-foreground">واتساب</p>
-                    <p className="text-sm text-muted-foreground" dir="ltr">+201003771479</p>
+                    <p className="text-sm text-muted-foreground" dir="ltr">01000501307</p>
                   </div>
                 </a>
               </div>

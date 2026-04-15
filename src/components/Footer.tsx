@@ -9,7 +9,7 @@ const Footer = () => {
           </div>
           <div className="text-sm text-center md:text-left">
             <p>العوامر قبلي، جرجا، محافظة سوهاج</p>
-            <p dir="ltr">+201003771479</p>
+            <p dir="ltr">201000501307</p>
             <p className="mt-2 text-background/50">© {new Date().getFullYear()} معرض الفتح. جميع الحقوق محفوظة.</p>
           </div>
         </div>
