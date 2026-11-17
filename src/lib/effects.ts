@@ -14,7 +14,6 @@ export const LOADER_SESSION_KEY = "ab-showroom-loader";
 export const SHOWROOM_STATS = [
   { value: 15, suffix: "+", label: "سنوات خبرة", max: 30 },
   { value: 1200, suffix: "+", label: "منتج متوفر", max: 1500 },
-  { value: 50, suffix: "", label: "علامات تجارية", max: 100 },
-  { value: 1000, suffix: "+", label: "عميل سعيد", max: 10000 },
-  { value: 50, suffix: "+", label: "سباك", max: 99 },
+  { value: 65, suffix: "+", label: "علامات تجارية", max: 100 },
+  { value: 50, suffix: "+", label: "سباك محترف", max: 70 },
 ];
