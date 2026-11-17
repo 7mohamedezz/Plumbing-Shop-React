@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 hero-overlay" />
       <div className="relative container h-full flex flex-col justify-center">
         <div className="max-w-2xl animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-[1.3] md:leading-[1.3] lg:leading-[1.3] mb-4">
             شريكك الموثوق في الأدوات الصحية
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-lg">

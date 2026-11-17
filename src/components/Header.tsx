@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Phone, MapPin, Menu, X } from "lucide-react";
+import { Menu, X, Droplets } from "lucide-react";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -26,8 +26,13 @@ const Header = () => {
         }}
       >
         <div className="container flex items-center justify-between h-16">
-          <a href="#home" className="text-xl font-extrabold text-primary tracking-tight">
-            🔧 معرض أحمد بدوي
+          <a href="#home" className="flex items-center gap-2.5 group">
+            <span className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <Droplets className="w-5 h-5" />
+            </span>
+            <span className="text-xl font-extrabold text-primary tracking-tight">
+              معرض أحمد بدوي
+            </span>
           </a>
 
           {/* Desktop nav */}
