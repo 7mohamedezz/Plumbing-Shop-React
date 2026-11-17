@@ -1,4 +1,5 @@
 import { MapPin, Phone } from "lucide-react";
+import { ADDRESS, PHONE, WHATSAPP_URL } from "@/lib/contact";
 
 const LocationSection = () => {
   return (
@@ -33,18 +34,24 @@ const LocationSection = () => {
                   <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">العنوان</p>
-                    <p className="text-sm text-muted-foreground">الأقصر، مصر، الكرنك الجديد</p>
+                    <p className="text-sm text-muted-foreground">{ADDRESS}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">الهاتف</p>
-                    <p className="text-sm text-muted-foreground" dir="ltr">+201003771479</p>
+                    <a
+                      href={`tel:${PHONE}`}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      dir="ltr"
+                    >
+                      {PHONE}
+                    </a>
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/201003771479"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 hover:opacity-80 transition-opacity"

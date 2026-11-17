@@ -15,7 +15,12 @@ const Header = () => {
   return (
     <>
       {/* Main nav */}
-      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b shadow-sm">
+      <header
+        className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b shadow-sm"
+        onKeyDown={(e) => {
+          if (e.key === "Escape") setMobileOpen(false);
+        }}
+      >
         <div className="container flex items-center justify-between h-16">
           <a href="#home" className="text-xl font-extrabold text-primary tracking-tight">
             🔧 معرض أحمد بدوي
@@ -39,6 +44,8 @@ const Header = () => {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-foreground"
             aria-label="القائمة"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -46,7 +53,7 @@ const Header = () => {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <nav className="md:hidden border-t bg-card pb-4">
+          <nav id="mobile-nav" className="md:hidden border-t bg-card pb-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}

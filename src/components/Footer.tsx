@@ -1,3 +1,5 @@
+import { ADDRESS, PHONE } from "@/lib/contact";
+
 const Footer = () => {
   return (
     <footer className="bg-foreground text-background/70 py-4">
@@ -8,8 +10,10 @@ const Footer = () => {
             <p className="text-sm mt-1">أدوات صحية وسباكة عالية الجودة.</p>
           </div>
           <div className="text-sm text-center md:text-left">
-            <p>الأقصر، مصر، الكرنك الجديد</p>
-            <p dir="ltr">+201003771479</p>
+            <p>{ADDRESS}</p>
+            <a href={`tel:${PHONE}`} dir="ltr" className="hover:text-background transition-colors">
+              {PHONE}
+            </a>
             <p className="mt-2 text-background/50">© {new Date().getFullYear()} معرض أحمد بدوي. جميع الحقوق محفوظة.</p>
           </div>
         </div>

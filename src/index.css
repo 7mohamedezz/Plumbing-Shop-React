@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -83,6 +83,11 @@
 @layer base {
   * {
     @apply border-border;
+  }
+
+  /* Keep anchor targets clear of the sticky 64px header */
+  html {
+    scroll-padding-top: 4rem;
   }
 
   body {

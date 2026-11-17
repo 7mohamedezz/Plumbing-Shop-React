@@ -1,10 +1,13 @@
 import heroImage from "@/assets/hero-plumbing.jpg";
+import heroImageMobile from "@/assets/hero-plumbing-1200.jpg";
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative h-[500px] md:h-[600px] overflow-hidden">
       <img
         src={heroImage}
+        srcSet={`${heroImageMobile} 1200w, ${heroImage} 1920w`}
+        sizes="100vw"
         alt="معرض أحمد بدوي للأدوات الصحية"
         className="absolute inset-0 w-full h-full object-cover"
         width={1920}
