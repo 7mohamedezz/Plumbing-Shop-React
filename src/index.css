@@ -39,6 +39,14 @@
     --hero-overlay: linear-gradient(135deg, hsla(207, 70%, 20%, 0.85), hsla(207, 70%, 35%, 0.7));
     --section-gradient: linear-gradient(180deg, hsl(210, 20%, 98%), hsl(210, 15%, 93%));
 
+    /* Plumbing accent tokens used by src/styles/effects.css */
+    --water: 199 89% 60%;
+    --water-deep: 201 90% 45%;
+    --copper: 29 57% 46%;
+    --copper-light: 31 60% 60%;
+    --navy-900: 213 69% 14%;
+    --navy-800: 213 51% 25%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;

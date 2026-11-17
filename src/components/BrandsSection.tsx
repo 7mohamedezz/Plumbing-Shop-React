@@ -16,7 +16,7 @@ const BrandsSection = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10" data-reveal>
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">العلامات التجارية</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             نوفر منتجات من أفضل العلامات التجارية الموثوقة
@@ -24,17 +24,18 @@ const BrandsSection = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-          {brands.map((b) => (
-            <div
-              key={b.name}
-              className="bg-white rounded-lg border p-4 flex items-center justify-center aspect-square hover:shadow-md transition-shadow"
-            >
-              <img
-                src={b.logo}
-                alt={b.name}
-                loading="lazy"
-                className="max-h-32 w-4/5 object-contain"
-              />
+          {brands.map((b, index) => (
+            <div key={b.name} data-reveal style={{ transitionDelay: `${index * 70}ms` }}>
+              <div
+                className="bg-white rounded-lg border p-4 flex items-center justify-center aspect-square hover:shadow-md transition-shadow"
+              >
+                <img
+                  src={b.logo}
+                  alt={b.name}
+                  loading="lazy"
+                  className="max-h-32 w-4/5 object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>

@@ -5,7 +5,7 @@ const LocationSection = () => {
   return (
     <section id="location" className="py-20 section-gradient">
       <div className="container">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-reveal>
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">موقعنا</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             زُر معرضنا أو تواصل معنا — فريقنا جاهز لمساعدتك.
@@ -14,7 +14,10 @@ const LocationSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Map */}
-          <div className="rounded-lg overflow-hidden border shadow-sm h-[350px] lg:h-auto">
+          <div
+            className="rounded-lg overflow-hidden border shadow-sm h-[350px] lg:h-auto"
+            data-reveal
+          >
             <iframe
               title="موقع معرض أحمد بدوي"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.28303283966!2d32.65975377539933!3d25.728152177372966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1449157f8e6240eb%3A0x981b7d63732ce40e!2z2YXYudix2LYg2KfYrdmF2K8g2KjYr9mI2Yog2YTZhNin2K_ZiNin2Kog2KfZhNi12K3ZitmH!5e0!3m2!1sen!2seg!4v1775229655643!5m2!1sen!2seg"
@@ -26,7 +29,7 @@ const LocationSection = () => {
           </div>
 
           {/* Contact info */}
-          <div className="flex flex-col gap-6" id="contact">
+          <div className="flex flex-col gap-6" id="contact" data-reveal style={{ transitionDelay: "90ms" }}>
             <div className="bg-card rounded-lg border p-6 shadow-sm">
               <h3 className="text-lg font-bold text-foreground mb-4">معلومات المعرض</h3>
               <div className="space-y-4">

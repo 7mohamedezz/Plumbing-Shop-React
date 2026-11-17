@@ -1,0 +1,388 @@
+/* ==========================================================================
+   Plumbing effects — decorative animation layer
+   --------------------------------------------------------------------------
+   Colours come from the tokens in src/index.css:
+     --water / --water-deep / --copper / --copper-light / --navy-900/800
+   Turn an effect off in src/lib/effects.ts.
+   Speeds live next to each @keyframes block; sizes are on the component class.
+   ========================================================================== */
+
+:root {
+  --shine-dir: 1;
+}
+
+[dir="rtl"] {
+  --shine-dir: -1;
+}
+
+/* ---------- 1. Water-fill loader ----------------------------------------- */
+
+.water-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(120% 120% at 50% 0%, hsl(var(--navy-800)), hsl(var(--navy-900)) 65%);
+  pointer-events: none;
+  animation: loader-away 0.3s ease 0.9s forwards;
+}
+
+.water-loader__inner {
+  padding: 2rem;
+  text-align: center;
+}
+
+.water-loader__brand {
+  position: relative;
+  font-size: clamp(1.7rem, 6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.water-loader__name {
+  color: hsl(0 0% 100% / 0.16);
+}
+
+/* The duplicate text rises inside a clip box, reading as water filling the name. */
+.water-loader__fill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: hsl(var(--water));
+  text-shadow: 0 0 24px hsl(var(--water) / 0.35);
+}
+
+.water-loader__fill > span {
+  display: block;
+  transform: translateY(100%);
+  animation: loader-rise 0.82s cubic-bezier(0.4, 0, 0.2, 1) 0.06s forwards;
+}
+
+.water-loader__sub {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: clamp(0.85rem, 2.4vw, 1rem);
+  font-weight: 600;
+  color: hsl(var(--copper-light));
+}
+
+.water-loader__wave {
+  display: block;
+  width: 140px;
+  height: 3px;
+  margin: 1.1rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, hsl(var(--water)), transparent);
+  animation: loader-wave 1s ease-in-out infinite;
+}
+
+@keyframes loader-rise {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes loader-away {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes loader-wave {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleX(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* ---------- 2. Product / category cards ---------------------------------- */
+
+.has-js .motion-cards [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.has-js .motion-cards [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-cards .effect-card {
+  position: relative;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.motion-cards .effect-card:hover {
+  transform: translateY(-6px);
+  border-color: hsl(var(--water) / 0.45);
+  box-shadow: 0 20px 45px -22px hsl(var(--navy-900) / 0.45);
+}
+
+.effect-card__shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.effect-card__shine::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  inset-inline-start: -55%;
+  width: 35%;
+  opacity: 0;
+  background: linear-gradient(100deg, transparent, hsl(0 0% 100% / 0.38), transparent);
+  transform: skewX(-18deg);
+}
+
+.motion-cards .effect-card:hover .effect-card__shine::before {
+  animation: card-shine 0.9s ease-out;
+}
+
+@keyframes card-shine {
+  0% {
+    opacity: 0;
+    transform: translateX(0) skewX(-18deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(420% * var(--shine-dir))) skewX(-18deg);
+  }
+}
+
+/* ---------- 3. Pressure-gauge stats -------------------------------------- */
+
+.showroom-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 0.75rem;
+  margin-top: 3.5rem;
+  padding: 2rem 1.25rem;
+  border: 1px solid hsl(var(--water) / 0.15);
+  border-radius: 1rem;
+  background: linear-gradient(150deg, hsl(var(--navy-800)), hsl(var(--navy-900)));
+}
+
+@media (min-width: 1024px) {
+  .showroom-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 2.5rem 2rem;
+  }
+}
+
+.pressure-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: hsl(210 40% 96%);
+}
+
+.pressure-gauge__dial {
+  position: relative;
+  width: 118px;
+  max-width: 100%;
+  aspect-ratio: 1;
+}
+
+.pressure-gauge__dial svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pressure-gauge__arc {
+  fill: none;
+  stroke: hsl(var(--water) / 0.16);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.pressure-gauge__water {
+  fill: none;
+  stroke: hsl(var(--water));
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px hsl(var(--water) / 0.45));
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.pressure-gauge__tick {
+  stroke: hsl(var(--copper-light) / 0.55);
+  stroke-width: 1.5;
+}
+
+.pressure-gauge__needle {
+  stroke: hsl(var(--copper-light));
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transform-box: view-box;
+  transform-origin: 60px 60px;
+  transition: transform 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.pressure-gauge__hub {
+  fill: hsl(var(--copper-light));
+}
+
+.pressure-gauge__value {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: hsl(var(--water));
+}
+
+.pressure-gauge__label {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: hsl(210 30% 82% / 0.85);
+}
+
+/* ---------- 4. Fittings rail (category icons) ----------------------------- */
+
+.fittings-rail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 680px;
+  margin: -0.5rem auto 2.75rem;
+  padding: 0 0.5rem;
+}
+
+.fittings-rail__line {
+  position: absolute;
+  inset-inline: 6%;
+  top: 50%;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: hsl(var(--copper) / 0.2);
+  transform: translateY(-50%);
+}
+
+.fittings-rail__line-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, hsl(var(--copper)), hsl(var(--water)), hsl(var(--copper)));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s ease 0.1s;
+}
+
+[dir="rtl"] .fittings-rail__line-fill {
+  transform-origin: right;
+}
+
+.fittings-rail.is-drawn .fittings-rail__line-fill {
+  transform: scaleX(1);
+}
+
+.fittings-rail__item {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: clamp(44px, 11vw, 58px);
+  aspect-ratio: 1;
+  border: 1px solid hsl(var(--copper) / 0.35);
+  border-radius: 999px;
+  color: hsl(var(--copper));
+  background: hsl(var(--card));
+  box-shadow: 0 8px 20px -14px hsl(var(--navy-900) / 0.5);
+  opacity: 0;
+  transform: scale(0.75) translateY(6px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.fittings-rail__item--water {
+  color: hsl(var(--water-deep));
+}
+
+.fittings-rail.is-drawn .fittings-rail__item {
+  opacity: 1;
+  transform: none;
+}
+
+.fittings-rail__item svg {
+  width: 55%;
+  height: 55%;
+}
+
+/* ---------- Responsive trims --------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* Touch devices can "stick" a hover state; keep only the entrance motion. */
+  .motion-cards .effect-card:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Reduced motion ----------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .has-js .motion-cards [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .motion-cards .effect-card,
+  .motion-cards .effect-card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .effect-card__shine {
+    display: none !important;
+  }
+
+  .water-loader__wave,
+  .wa-button.animate-pulse {
+    animation: none !important;
+  }
+
+  .water-loader {
+    display: none !important;
+  }
+
+  .pressure-gauge__water,
+  .pressure-gauge__needle,
+  .fittings-rail__line-fill,
+  .fittings-rail__item {
+    transition: none;
+  }
+
+  .fittings-rail__item {
+    opacity: 1;
+    transform: none;
+  }
+}
