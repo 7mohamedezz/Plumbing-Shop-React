@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Phone, MapPin, Menu, X } from "lucide-react";
+import { useRef, useState } from "react";
+import { Menu, X, Droplets } from "lucide-react";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   const navLinks = [
     { label: "الرئيسية", href: "#home" },
@@ -15,10 +16,23 @@ const Header = () => {
   return (
     <>
       {/* Main nav */}
-      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b shadow-sm">
+      <header
+        className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b shadow-sm"
+        onKeyDown={(e) => {
+          if (e.key !== "Escape" || !mobileOpen) return;
+          setMobileOpen(false);
+          // Focus would be lost with the unmounted nav link; hand it back to the toggle
+          toggleRef.current?.focus();
+        }}
+      >
         <div className="container flex items-center justify-between h-16">
-          <a href="#home" className="text-xl font-extrabold text-primary tracking-tight">
-            🔧 معرض أحمد بدوي
+          <a href="#home" className="flex items-center gap-2.5 group">
+            <span className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <Droplets className="w-5 h-5" />
+            </span>
+            <span className="text-xl font-extrabold text-primary tracking-tight">
+              معرض أحمد بدوي
+            </span>
           </a>
 
           {/* Desktop nav */}
@@ -36,9 +50,12 @@ const Header = () => {
 
           {/* Mobile toggle */}
           <button
+            ref={toggleRef}
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-foreground"
             aria-label="القائمة"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -46,7 +63,7 @@ const Header = () => {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <nav className="md:hidden border-t bg-card pb-4">
+          <nav id="mobile-nav" className="md:hidden border-t bg-card pb-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}

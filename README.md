@@ -53,10 +53,7 @@ This version is mostly static-content driven:
 
 - Product data is currently hardcoded in [src/components/ProductsSection.tsx](src/components/ProductsSection.tsx).
 - Brand list is hardcoded in [src/components/BrandsSection.tsx](src/components/BrandsSection.tsx).
-- Contact phone and WhatsApp URL are hardcoded in:
-	- [src/components/WhatsAppButton.tsx](src/components/WhatsAppButton.tsx)
-	- [src/components/LocationSection.tsx](src/components/LocationSection.tsx)
-	- [src/components/Footer.tsx](src/components/Footer.tsx)
+- Contact phone, WhatsApp URL and address live in [src/lib/contact.ts](src/lib/contact.ts) and are imported by the contact components.
 
 If you plan to make the content editable, these are the first files to move into a shared config or CMS/API.
 
@@ -64,7 +61,7 @@ If you plan to make the content editable, these are the first files to move into
 
 Requirements:
 
-- Node.js 18+
+- Node.js 20.19+ or 22.12+ (required by Vite 7)
 - npm 9+
 
 Install dependencies:
@@ -72,6 +69,8 @@ Install dependencies:
 ```bash
 npm install
 ```
+
+Only `npm` is supported; there is no Bun lockfile.
 
 Run development server:
 
@@ -101,9 +100,15 @@ npm run build
 
 Generated output is placed in `dist/`.
 
+The app uses client-side routing, so the host must answer unknown paths with
+`index.html` (SPA fallback) or the `*` route will never render:
+
+- Netlify: add `public/_redirects` containing `/* /index.html 200`.
+- Vercel: add a rewrite of `/(.*)` to `/index.html`.
+
 ## Favicon / Branding
 
-- Browser tab icon is set in [index.html](index.html) and points to `public/tap.png`.
+- Browser tab icon is set in [index.html](index.html) and points to `src/assets/tap.png`.
 - Public static assets live under `public/`.
 
 ## Folder Structure
@@ -114,8 +119,8 @@ src/
 	components/ui/   shadcn/ui primitives
 	pages/           Route-level pages
 	hooks/           Custom React hooks
-	lib/             Shared utility helpers
+	lib/             Shared helpers + contact details
 	assets/          Imported images
-	test/            Test setup and sample tests
+	test/            Test setup
 public/            Static files served as-is
 ```

@@ -6,16 +6,24 @@ import AboutSection from "@/components/AboutSection";
 import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WaterLoader from "@/components/effects/WaterLoader";
+import { useRevealOnScroll } from "@/hooks/use-reveal";
+import { EFFECTS } from "@/lib/effects";
 
 const Index = () => {
+  const revealRef = useRevealOnScroll<HTMLDivElement>();
+
   return (
-    <div className="min-h-screen">
+    <div ref={revealRef} className={`min-h-screen${EFFECTS.cards ? " motion-cards" : ""}`}>
+      <WaterLoader />
       <Header />
-      <HeroSection />
-      <BrandsSection />
-      <ProductsSection />
-      <AboutSection />
-      <LocationSection />
+      <main>
+        <HeroSection />
+        <BrandsSection />
+        <ProductsSection />
+        <AboutSection />
+        <LocationSection />
+      </main>
       <Footer />
       <WhatsAppButton />
     </div>

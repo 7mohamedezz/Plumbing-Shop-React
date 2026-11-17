@@ -4,6 +4,7 @@ import valvesImg from "@/assets/products-valves.jpg";
 import toolsImg from "@/assets/products-tools.jpg";
 import fixturesImg from "@/assets/products-fixtures.jpg";
 import accessoriesImg from "@/assets/products-accessories.jpg";
+import FittingsRail from "@/components/effects/FittingsRail";
 
 
 const products = [
@@ -20,33 +21,39 @@ const ProductsSection = () => {
   return (
     <section id="products" className="py-20 section-gradient">
       <div className="container">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-reveal>
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">منتجاتنا</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             كل ما تحتاجه لمشاريع السباكة السكنية والتجارية — تحت سقف واحد.
           </p>
         </div>
 
+        <FittingsRail />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((p) => (
+          {products.map((p, index) => (
             <div
               key={p.name}
-              className="group bg-card rounded-lg overflow-hidden border shadow-sm hover:shadow-md transition-shadow"
+              data-reveal
+              style={{ transitionDelay: `${index * 70}ms` }}
             >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  loading="lazy"
-                  width={800}
-                  height={800}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
-                <p className="text-sm text-muted-foreground">{p.desc}</p>
-              </div>
+              <article className="group effect-card bg-card rounded-lg overflow-hidden border shadow-sm h-full">
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="relative z-10 p-5">
+                  <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
+                  <p className="text-sm text-muted-foreground">{p.desc}</p>
+                </div>
+                <span className="effect-card__shine" aria-hidden="true" />
+              </article>
             </div>
           ))}
         </div>
