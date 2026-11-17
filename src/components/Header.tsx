@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Phone, MapPin, Menu, X } from "lucide-react";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   const navLinks = [
     { label: "الرئيسية", href: "#home" },
@@ -18,7 +19,10 @@ const Header = () => {
       <header
         className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b shadow-sm"
         onKeyDown={(e) => {
-          if (e.key === "Escape") setMobileOpen(false);
+          if (e.key !== "Escape" || !mobileOpen) return;
+          setMobileOpen(false);
+          // Focus would be lost with the unmounted nav link; hand it back to the toggle
+          toggleRef.current?.focus();
         }}
       >
         <div className="container flex items-center justify-between h-16">
@@ -41,6 +45,7 @@ const Header = () => {
 
           {/* Mobile toggle */}
           <button
+            ref={toggleRef}
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-foreground"
             aria-label="القائمة"

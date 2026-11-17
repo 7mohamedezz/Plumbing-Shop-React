@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import App from "./App";
 import { PHONE, WHATSAPP_URL } from "@/lib/contact";
@@ -18,5 +18,17 @@ describe("landing page", () => {
 
     const whatsappLinks = screen.getAllByRole("link").filter((link) => link.getAttribute("href") === WHATSAPP_URL);
     expect(whatsappLinks.length).toBe(2);
+  });
+
+  it("returns focus to the menu toggle when Escape closes the menu", () => {
+    render(<App />);
+    const toggle = screen.getByRole("button", { name: "القائمة" });
+    fireEvent.click(toggle);
+
+    const links = screen.getAllByRole("link", { name: "المنتجات" });
+    fireEvent.keyDown(links[links.length - 1], { key: "Escape" });
+
+    expect(document.activeElement).toBe(toggle);
+    expect(screen.getAllByRole("link", { name: "المنتجات" })).toHaveLength(1);
   });
 });
