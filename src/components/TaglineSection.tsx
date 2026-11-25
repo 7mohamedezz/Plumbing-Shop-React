@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import PipeDivider from "@/components/PipeDivider";
 
 const lines = [
   { text: "القطعة الصحيحة", highlight: false },
@@ -67,6 +68,10 @@ const TaglineSection = () => {
             );
           })}
         </h2>
+      </div>
+
+      <div className="mt-12 md:mt-16">
+        <PipeDivider />
       </div>
     </section>
   );

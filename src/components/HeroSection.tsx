@@ -1,5 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import heroImage from "@/assets/hero-plumbing.jpg";
+import PipeDivider from "@/components/PipeDivider";
 
 const starPoints = Array.from({ length: 24 }, (_, i) => {
   const radius = i % 2 === 0 ? 50 : 39;
@@ -88,29 +89,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="relative h-12 w-full md:h-16" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 64"
-          preserveAspectRatio="none"
-          className="h-full w-full"
-          fill="none"
-        >
-          <rect y="20" width="1440" height="24" fill="#4C230B" />
-          <rect y="20" width="1440" height="6" fill="#713615" />
-          <rect x="180" y="12" width="16" height="40" fill="#35170A" />
-          <rect x="1180" y="12" width="16" height="40" fill="#35170A" />
-        </svg>
-        <svg
-          viewBox="0 0 80 80"
-          className="absolute right-[16%] top-1/2 h-16 w-16 -translate-y-1/2 md:h-20 md:w-20"
-          aria-hidden="true"
-        >
-          <rect x="35" y="42" width="10" height="24" fill="#4C230B" />
-          <circle cx="40" cy="38" r="24" fill="none" stroke="#BEF231" strokeWidth="8" />
-          <path d="M40 14v48M16 38h48" stroke="#BEF231" strokeWidth="5" />
-          <circle cx="40" cy="38" r="8" fill="#BEF231" />
-        </svg>
-      </div>
+      <PipeDivider />
 
       <p
         aria-hidden="true"
