@@ -1,19 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import TaglineSection from "./TaglineSection";
 
-it("shows the full tagline when reduced motion is on", () => {
-  const original = window.matchMedia;
-  window.matchMedia = (query: string) =>
-    ({ matches: true, media: query }) as unknown as MediaQueryList;
+it("shows the plumber invoice request and item list", () => {
+  render(<TaglineSection />);
 
-  const { container } = render(<TaglineSection />);
-
-  expect(screen.getByRole("heading")).toHaveTextContent(
-    "خلاطات وأطقم حمامات اختار بينهم براحتك.",
+  expect(screen.getByRole("heading", { name: "معاك طلبات السباك؟" })).toBeInTheDocument();
+  expect(screen.getByText("٦ ماسورة ٣/٤ لحام")).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "ابعت الفاتورة على واتساب" })).toHaveAttribute(
+    "href",
+    expect.stringContaining("wa.me/201003771479"),
   );
-  const words = container.querySelectorAll("h2 span span");
-  expect(words.length).toBe(6);
-  expect([...words].some((word) => word.className.includes("text-ink/20"))).toBe(false);
-
-  window.matchMedia = original;
 });
