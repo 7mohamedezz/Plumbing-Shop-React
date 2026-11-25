@@ -2,9 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import PipeDivider from "@/components/PipeDivider";
 
 const lines = [
-  { text: "القطعة الصحيحة", highlight: false },
-  { text: "في المكان الصحيح.", highlight: true },
-  { text: "من أول مرة.", highlight: false },
+  { text: "خلاطات وأطقم حمامات", highlight: false },
+  { text: "اختار بينهم براحتك.", highlight: true },
 ];
 
 const TaglineSection = () => {
@@ -37,10 +36,10 @@ const TaglineSection = () => {
   return (
     <section className="bg-cream py-16 md:py-24">
       <div className="container">
-        <p className="mb-5 text-sm font-bold text-brand">وعدنا لك</p>
+        <p className="mb-5 text-sm font-bold text-brand">للحمام والمطبخ</p>
         <h2
           ref={ref}
-          className="max-w-4xl text-4xl font-extrabold leading-tight text-ink md:text-6xl"
+          className="max-w-4xl space-y-4 text-4xl font-extrabold leading-loose text-ink md:space-y-6 md:text-6xl"
         >
           {lines.map((line, li) => {
             const offset = lines

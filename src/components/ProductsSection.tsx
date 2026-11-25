@@ -6,12 +6,12 @@ import fixturesImg from "@/assets/products-fixtures.jpg";
 import accessoriesImg from "@/assets/products-accessories.jpg";
 
 const products = [
-  { name: "قلوب ومحابس نحاس", desc: "قلوب Vidmar نحاس عيار 24 — جودة ألمانية 100%.", image: valvesImg },
-  { name: "مواسير ووصلات", desc: "مواسير PVC، وصلات Boroug وقطع صرف بجميع المقاسات.", image: fittingsImg },
-  { name: "مواسير وأدوات صحية", desc: "مياه نظيفة تبدأ من المواسير الصح.", image: pipesImg },
-  { name: "أطقم حمامات", desc: "أطقم حمامات كاملة بتصميمات عصرية وأنيقة.", image: fixturesImg },
-  { name: "حلل ومراحيض", desc: "حلل Vidmar وأحواض مطابخ — رقم 1 في مصر.", image: toolsImg },
-  { name: "خلاطات", desc: "خلاطات حمامات ومطابخ بتصميمات حديثة.", image: accessoriesImg },
+  { name: "قلوب ومحابس نحاس", desc: "قلوب Vidmar نحاس عيار 24 للمحابس والخلاطات.", image: valvesImg },
+  { name: "مواسير ووصلات", desc: "مواسير PVC، وصلات Boroug وقطع صرف بمقاسات مختلفة.", image: fittingsImg },
+  { name: "مواسير وأدوات صحية", desc: "لما تكون بتأسس أو بتغيّر جزء في خط المياه.", image: pipesImg },
+  { name: "أطقم حمامات", desc: "أطقم حمامات كاملة للحمام الجديد أو التجديد.", image: fixturesImg },
+  { name: "حلل ومراحيض", desc: "حلل Vidmar وأحواض مطابخ للاستخدام اليومي.", image: toolsImg },
+  { name: "خلاطات", desc: "خلاطات حمامات ومطابخ بأشكال ومقاسات مختلفة.", image: accessoriesImg },
 ];
 
 const ProductsSection = () => {
@@ -19,10 +19,10 @@ const ProductsSection = () => {
     <section id="products" className="bg-brand py-16 md:py-24">
       <div className="container">
         <div className="mb-10 max-w-2xl md:mb-14">
-          <p className="mb-3 text-sm font-bold text-ink">كل ما تحتاجه تحت سقف واحد</p>
-          <h2 className="text-3xl font-extrabold text-white md:text-4xl">منتجاتنا</h2>
+          <p className="mb-3 text-sm font-bold text-ink">بتجهّز ولا بتصلّح؟</p>
+          <h2 className="text-3xl font-extrabold text-white md:text-4xl">شوف اللي محتاجه</h2>
           <p className="mt-3 text-white/85">
-            كل ما تحتاجه لمشاريع السباكة السكنية والتجارية — بجودة تختارها مرة واحدة.
+            من قلب النحاس لحد طقم الحمام، شوف الأصناف واسأل عن المقاس قبل ما تشتري.
           </p>
         </div>
 

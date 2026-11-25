@@ -18,11 +18,11 @@ const BrandsSection = () => {
       <div className="container">
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-2 text-sm font-bold text-brand">ماركات نضمنها</p>
-            <h2 className="text-3xl font-extrabold text-ink md:text-4xl">العلامات التجارية</h2>
+            <p className="mb-2 text-sm font-bold text-brand">ماركات موجودة عندنا</p>
+            <h2 className="text-3xl font-extrabold text-ink md:text-4xl">اختار اللي يناسب شغلك</h2>
           </div>
           <p className="max-w-md text-muted-foreground">
-            نوفر منتجات من أفضل العلامات التجارية الموثوقة.
+            اسألنا عن المتاح والمقاس اللي يناسب استخدامك.
           </p>
         </div>
 

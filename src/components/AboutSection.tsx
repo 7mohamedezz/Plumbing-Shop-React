@@ -1,10 +1,10 @@
 import { Award, Users, Truck, ShieldCheck } from "lucide-react";
 
 const features = [
-  { icon: Award, title: "خبرة طويلة", desc: "موثوق من العملاء والفنيين منذ سنوات." },
-  { icon: Users, title: "فريق متخصص", desc: "فريق خبير يساعدك في اختيار القطع المناسبة." },
-  { icon: Truck, title: "توصيل سريع", desc: "توصيل سريع في المنطقة." },
-  { icon: ShieldCheck, title: "ماركات موثوقة", desc: "نوفر فقط المنتجات من الشركات المصنعة الموثوقة." },
+  { icon: Award, title: "مش هنقولك هات أي حاجة", desc: "بنسألك عن الاستخدام والمقاس قبل ما نرشّح صنف." },
+  { icon: Users, title: "اسأل براحتك", desc: "لو مش عارف اسم القطعة، وصفها لنا وإحنا نفهمك." },
+  { icon: Truck, title: "محتاج توصيل؟", desc: "اسألنا عن التوصيل جوه المنطقة قبل ما تيجي." },
+  { icon: ShieldCheck, title: "اختار من كذا ماركة", desc: "عندنا أصناف من ماركات زي Lecico وEGIC وIdeal Standard." },
 ];
 
 const AboutSection = () => {
@@ -13,14 +13,14 @@ const AboutSection = () => {
       <div className="container">
         <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
-            <p className="mb-2 text-sm font-bold text-lime">ليه أحمد بدوي؟</p>
+            <p className="mb-2 text-sm font-bold text-lime">قبل ما تختار</p>
             <h2 className="text-3xl font-extrabold text-white md:text-4xl">
-              لماذا معرض أحمد بدوي؟
+              اسأل عن المقاس الأول
             </h2>
           </div>
           <p className="max-w-md text-white/70">
-            نحن أكثر من مجرد معرض — نحن شريكك في السباكة، من الإصلاحات البسيطة إلى المشاريع
-            الكبيرة.
+            احكي لنا المشكلة أو اللي بتجهزه، ونبدأ من الاستخدام والمقاس بدل ما نرمي عليك أسماء
+            أصناف وخلاص.
           </p>
         </div>
 

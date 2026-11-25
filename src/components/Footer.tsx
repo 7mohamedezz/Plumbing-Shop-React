@@ -3,7 +3,7 @@ import { Wrench } from "lucide-react";
 const footerLinks = [
   { label: "الرئيسية", href: "#home" },
   { label: "المنتجات", href: "#products" },
-  { label: "من نحن", href: "#about" },
+  { label: "إحنا مين", href: "#about" },
   { label: "الموقع", href: "#location" },
 ];
 
@@ -20,12 +20,12 @@ const Footer = () => {
               معرض أحمد بدوي
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed">
-              أدوات صحية وسباكة عالية الجودة للسباكين وأصحاب المنازل في الأقصر.
+              مواسير ووصلات وأدوات صحية للسباكين وأصحاب البيوت في الأقصر.
             </p>
           </div>
 
           <nav className="flex flex-col gap-2 text-sm" aria-label="روابط الفوتر">
-            <p className="mb-1 font-bold text-white">روابط سريعة</p>
+            <p className="mb-1 font-bold text-white">توصّل بسرعة</p>
             {footerLinks.map((link) => (
               <a
                 key={link.href}

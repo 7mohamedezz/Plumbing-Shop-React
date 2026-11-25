@@ -4,9 +4,9 @@ import { Menu, Phone, Wrench, X } from "lucide-react";
 const navLinks = [
   { label: "الرئيسية", href: "#home" },
   { label: "المنتجات", href: "#products" },
-  { label: "من نحن", href: "#about" },
-  { label: "الموقع", href: "#location" },
-  { label: "تواصل معنا", href: "#contact" },
+  { label: "إحنا مين", href: "#about" },
+  { label: "فينّا", href: "#location" },
+  { label: "كلّمنا", href: "#contact" },
 ];
 
 const Header = () => {

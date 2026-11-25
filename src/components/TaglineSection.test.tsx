@@ -9,10 +9,10 @@ it("shows the full tagline when reduced motion is on", () => {
   const { container } = render(<TaglineSection />);
 
   expect(screen.getByRole("heading")).toHaveTextContent(
-    "القطعة الصحيحة في المكان الصحيح. من أول مرة.",
+    "خلاطات وأطقم حمامات اختار بينهم براحتك.",
   );
   const words = container.querySelectorAll("h2 span span");
-  expect(words.length).toBe(8);
+  expect(words.length).toBe(6);
   expect([...words].some((word) => word.className.includes("text-ink/20"))).toBe(false);
 
   window.matchMedia = original;

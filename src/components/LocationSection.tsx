@@ -5,10 +5,10 @@ const LocationSection = () => {
     <section id="location" className="bg-cream py-16 md:py-24">
       <div className="container">
         <div className="mb-10 max-w-2xl md:mb-14">
-          <p className="mb-2 text-sm font-bold text-brand">تعالى زورنا</p>
-          <h2 className="text-3xl font-extrabold text-ink md:text-4xl">موقعنا</h2>
+          <p className="mb-2 text-sm font-bold text-brand">عنواننا</p>
+          <h2 className="text-3xl font-extrabold text-ink md:text-4xl">تلاقينا في الكرنك الجديد</h2>
           <p className="mt-3 text-muted-foreground">
-            زُر معرضنا أو تواصل معنا — فريقنا جاهز لمساعدتك.
+            مش متأكد من المقاس؟ ابعت صورة القطعة قبل ما تتحرك.
           </p>
         </div>
 

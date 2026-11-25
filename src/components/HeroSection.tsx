@@ -10,9 +10,9 @@ const starPoints = Array.from({ length: 24 }, (_, i) => {
 }).join(" ");
 
 const stats = [
-  { value: "5", label: "ماركات موثوقة" },
-  { value: "توصيل", label: "داخل المنطقة" },
-  { value: "فريق", label: "يساعدك في الاختيار" },
+  { value: "5", label: "ماركات موجودة" },
+  { value: "توصيل", label: "جوه المنطقة" },
+  { value: "سؤال", label: "قبل ما تشتري" },
 ];
 
 const WaterFlood = ({ isOpen }: { isOpen: boolean }) => (
@@ -91,23 +91,22 @@ const HeroSection = () => {
               معرض أحمد بدوي · الكرنك الجديد، الأقصر
             </p>
 
-            <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="block">كل قطع السباكة</span>
-              <span className="block text-ink">تحت سقف واحد.</span>
+            <h1 className="space-y-2 text-4xl font-extrabold leading-relaxed text-white sm:text-5xl md:space-y-4 md:text-6xl lg:text-7xl">
+              <span className="block">عايز تجهز سباكة شقتك؟</span>
+              <span className="block text-ink">ابدأ من هنا.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-              مواسير، قلوب نحاس، محابس، أطقم حمامات وأدوات سباكة من ماركات موثوقة، مع فريق
-              يساعدك في اختيار القطعة المناسبة.
+              بتجهّز شقتك؟ من أول الماسورة لحد الخلاط، عندنا أصناف التأسيس والتشطيب.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a href="#products" className="btn btn-lime">
-                تصفح المنتجات
+                شوف الأصناف
                 <ArrowLeft className="h-5 w-5" />
               </a>
               <a href="#location" className="btn btn-outline-light">
-                زُر المعرض
+                كلّمنا
               </a>
             </div>
 
@@ -146,9 +145,9 @@ const HeroSection = () => {
                 <polygon points={starPoints} fill="#BEF231" />
               </svg>
               <span className="relative text-center text-xs font-extrabold leading-snug text-ink">
-                استشارة
+                اسأل قبل
                 <br />
-                مجانية
+                ما تشتري
               </span>
             </div>
           </div>
