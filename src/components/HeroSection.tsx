@@ -1,40 +1,123 @@
+import { ArrowLeft } from "lucide-react";
 import heroImage from "@/assets/hero-plumbing.jpg";
+
+const starPoints = Array.from({ length: 24 }, (_, i) => {
+  const radius = i % 2 === 0 ? 50 : 39;
+  const angle = (Math.PI * i) / 12;
+  return `${(50 + radius * Math.cos(angle)).toFixed(1)},${(50 + radius * Math.sin(angle)).toFixed(1)}`;
+}).join(" ");
+
+const stats = [
+  { value: "5", label: "ماركات موثوقة" },
+  { value: "توصيل", label: "داخل المنطقة" },
+  { value: "فريق", label: "يساعدك في الاختيار" },
+];
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative h-[500px] md:h-[600px] overflow-hidden">
-      <img
-        src={heroImage}
-        alt="معرض أحمد بدوي للأدوات الصحية"
-        className="absolute inset-0 w-full h-full object-cover"
-        width={1920}
-        height={1080}
-      />
-      <div className="absolute inset-0 hero-overlay" />
-      <div className="relative container h-full flex flex-col justify-center">
-        <div className="max-w-2xl animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight mb-4">
-            شريكك الموثوق في الأدوات الصحية
-          </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-lg">
-            مواسير، وصلات، محابس وأدوات سباكة احترافية لجميع الاحتياجات.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#products"
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-accent text-accent-foreground font-semibold hover:opacity-90 transition-opacity"
-            >
-              تصفح المنتجات
-            </a>
-            <a
-              href="#location"
-              className="inline-flex items-center px-6 py-3 rounded-lg border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-colors"
-            >
-              زُر معرضنا
-            </a>
+    <section id="home" className="relative overflow-hidden bg-brand">
+      <div className="container relative z-10 pb-10 pt-12 md:pt-20">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="max-w-2xl">
+            <p className="mb-5 flex items-center gap-2 text-sm font-bold text-white/80">
+              <span className="h-2.5 w-2.5 rounded-full bg-lime" />
+              معرض أحمد بدوي · الكرنك الجديد، الأقصر
+            </p>
+
+            <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              <span className="block">كل قطع السباكة</span>
+              <span className="block text-lime">تحت سقف واحد.</span>
+            </h1>
+
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+              مواسير، قلوب نحاس، محابس، أطقم حمامات وأدوات سباكة من ماركات موثوقة، مع فريق
+              يساعدك في اختيار القطعة المناسبة.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#products" className="btn btn-lime">
+                تصفح المنتجات
+                <ArrowLeft className="h-5 w-5" />
+              </a>
+              <a href="#location" className="btn btn-outline-light">
+                زُر المعرض
+              </a>
+            </div>
+
+            <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/25 pt-6">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    <span className="block text-xl font-extrabold text-lime md:text-2xl">
+                      {stat.value}
+                    </span>
+                    <span className="text-sm text-white/75">{stat.label}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md">
+            <div
+              className="absolute -inset-3 rounded-full border-4 border-lime/80"
+              aria-hidden="true"
+            />
+            <div className="relative aspect-square overflow-hidden rounded-full border-[10px] border-cream shadow-2xl">
+              <img
+                src={heroImage}
+                alt="معرض أحمد بدوي للأدوات الصحية"
+                className="h-full w-full object-cover"
+                width={800}
+                height={800}
+              />
+            </div>
+
+            <div className="absolute -bottom-3 -left-3 z-10 grid h-28 w-28 place-items-center md:h-32 md:w-32">
+              <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" aria-hidden="true">
+                <polygon points={starPoints} fill="#BEF231" />
+              </svg>
+              <span className="relative text-center text-xs font-extrabold leading-snug text-ink">
+                استشارة
+                <br />
+                مجانية
+              </span>
+            </div>
           </div>
         </div>
       </div>
+
+      <div className="relative h-12 w-full md:h-16" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 64"
+          preserveAspectRatio="none"
+          className="h-full w-full"
+          fill="none"
+        >
+          <rect y="20" width="1440" height="24" fill="#4C230B" />
+          <rect y="20" width="1440" height="6" fill="#713615" />
+          <rect x="180" y="12" width="16" height="40" fill="#35170A" />
+          <rect x="1180" y="12" width="16" height="40" fill="#35170A" />
+        </svg>
+        <svg
+          viewBox="0 0 80 80"
+          className="absolute right-[16%] top-1/2 h-16 w-16 -translate-y-1/2 md:h-20 md:w-20"
+          aria-hidden="true"
+        >
+          <rect x="35" y="42" width="10" height="24" fill="#4C230B" />
+          <circle cx="40" cy="38" r="24" fill="none" stroke="#BEF231" strokeWidth="8" />
+          <path d="M40 14v48M16 38h48" stroke="#BEF231" strokeWidth="5" />
+          <circle cx="40" cy="38" r="8" fill="#BEF231" />
+        </svg>
+      </div>
+
+      <p
+        aria-hidden="true"
+        className="display-outline pointer-events-none -mb-3 select-none whitespace-nowrap px-4 text-5xl font-extrabold leading-none opacity-70 md:px-8 md:text-7xl lg:text-8xl"
+      >
+        أحمد بدوي · أدوات صحية · سباكة
+      </p>
     </section>
   );
 };

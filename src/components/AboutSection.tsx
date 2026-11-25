@@ -9,23 +9,29 @@ const features = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-card">
+    <section id="about" className="bg-ink py-16 md:py-24">
       <div className="container">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">لماذا معرض أحمد بدوي؟</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            نحن أكثر من مجرد معرض — نحن شريكك في السباكة. من الإصلاحات البسيطة إلى المشاريع الكبيرة، نحن هنا لمساعدتك.
+        <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-xl">
+            <p className="mb-2 text-sm font-bold text-lime">ليه أحمد بدوي؟</p>
+            <h2 className="text-3xl font-extrabold text-white md:text-4xl">
+              لماذا معرض أحمد بدوي؟
+            </h2>
+          </div>
+          <p className="max-w-md text-white/70">
+            نحن أكثر من مجرد معرض — نحن شريكك في السباكة، من الإصلاحات البسيطة إلى المشاريع
+            الكبيرة.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f) => (
-            <div key={f.title} className="text-center p-6 rounded-lg bg-background border">
-              <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                <f.icon className="w-7 h-7 text-primary" />
+            <div key={f.title} className="rounded-xl border border-white/10 bg-white/5 p-6">
+              <div className="mb-4 grid h-12 w-12 place-items-center rounded-lg bg-lime text-ink">
+                <f.icon className="h-6 w-6" />
               </div>
-              <h3 className="font-bold text-foreground mb-1">{f.title}</h3>
-              <p className="text-sm text-muted-foreground">{f.desc}</p>
+              <h3 className="font-bold text-white">{f.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-white/70">{f.desc}</p>
             </div>
           ))}
         </div>

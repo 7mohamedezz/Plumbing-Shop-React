@@ -1,43 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 210 30% 12%;
+    --background: 40 45% 94%;
+    --foreground: 24 40% 6%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 30% 12%;
+    --card-foreground: 24 40% 6%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 30% 12%;
+    --popover-foreground: 24 40% 6%;
 
-    --primary: 207 70% 35%;
+    --primary: 17 90% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 30% 95%;
-    --secondary-foreground: 210 30% 12%;
+    --secondary: 38 40% 90%;
+    --secondary-foreground: 24 40% 6%;
 
-    --muted: 210 15% 93%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 38 30% 90%;
+    --muted-foreground: 24 15% 35%;
 
-    --accent: 25 80% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 74 88% 57%;
+    --accent-foreground: 24 40% 6%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 15% 88%;
-    --input: 210 15% 88%;
-    --ring: 207 70% 35%;
+    --border: 34 22% 84%;
+    --input: 34 22% 84%;
+    --ring: 17 90% 53%;
 
     --radius: 0.5rem;
-
-    --hero-overlay: linear-gradient(135deg, hsla(207, 70%, 20%, 0.85), hsla(207, 70%, 35%, 0.7));
-    --section-gradient: linear-gradient(180deg, hsl(210, 20%, 98%), hsl(210, 15%, 93%));
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -85,21 +82,42 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-bold tracking-normal;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-base font-bold transition-colors duration-300 ease-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 active:scale-[0.98];
+  }
+
+  .btn-lime {
+    @apply bg-lime text-ink hover:bg-lime/90 focus-visible:ring-offset-brand;
+  }
+
+  .btn-outline-light {
+    @apply border-2 border-white/40 text-white hover:bg-white/10;
   }
 }
 
 @layer utilities {
-  .hero-overlay {
-    background: var(--hero-overlay);
+  .display-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
+    color: transparent;
   }
 
-  .section-gradient {
-    background: var(--section-gradient);
+  .display-outline-ink {
+    -webkit-text-stroke: 1px rgba(23, 16, 8, 0.35);
+    color: transparent;
   }
 }
