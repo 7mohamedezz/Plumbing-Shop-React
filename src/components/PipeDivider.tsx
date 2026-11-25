@@ -1,7 +1,17 @@
 import { useState } from "react";
 
-const PipeDivider = () => {
-  const [turns, setTurns] = useState(0);
+type PipeDividerProps = {
+  onOpenChange?: (isOpen: boolean) => void;
+};
+
+const PipeDivider = ({ onOpenChange }: PipeDividerProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleValve = () => {
+    const nextState = !isOpen;
+    setIsOpen(nextState);
+    onOpenChange?.(nextState);
+  };
 
   return (
     <div className="relative h-12 w-full md:h-16">
@@ -20,8 +30,9 @@ const PipeDivider = () => {
 
       <button
         type="button"
-        onClick={() => setTurns((current) => current + 1)}
-        aria-label="لفّ صمام الماسورة"
+        onClick={toggleValve}
+        aria-label={isOpen ? "إغلاق صمام الماسورة" : "فتح صمام الماسورة"}
+        aria-pressed={isOpen}
         title="اضغط للف الصمام"
         className="absolute right-[16%] top-1/2 grid h-16 w-16 -translate-y-1/2 place-items-center rounded-full transition-transform duration-300 ease-smooth hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:h-20 md:w-20"
       >
@@ -35,7 +46,7 @@ const PipeDivider = () => {
         <svg
           viewBox="0 0 80 80"
           className="relative h-full w-full transition-transform duration-500 ease-smooth"
-          style={{ transform: `rotate(${turns * 45}deg)` }}
+          style={{ transform: `rotate(${isOpen ? 180 : 0}deg)` }}
           aria-hidden="true"
         >
           <circle cx="40" cy="40" r="24" fill="none" stroke="#BEF231" strokeWidth="8" />

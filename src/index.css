@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -119,5 +119,49 @@
   .display-outline-ink {
     -webkit-text-stroke: 1px rgba(23, 16, 8, 0.35);
     color: transparent;
+  }
+
+  .water-flood {
+    will-change: transform;
+  }
+
+  .water-wave {
+    animation: water-wave 6s linear infinite;
+    will-change: transform;
+  }
+
+  .water-bubble {
+    animation: water-bubble 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+}
+
+@keyframes water-wave {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes water-bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.7);
+  }
+  15% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .water-flood,
+  .water-wave,
+  .water-bubble {
+    animation: none;
   }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, Phone, Wrench, X } from "lucide-react";
 
 const navLinks = [
@@ -11,6 +11,17 @@ const navLinks = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (mobileNavRef.current) {
+      if (mobileOpen) {
+        mobileNavRef.current.removeAttribute("inert");
+      } else {
+        mobileNavRef.current.setAttribute("inert", "");
+      }
+    }
+  }, [mobileOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-ink text-white">
@@ -60,6 +71,8 @@ const Header = () => {
 
       <div
         id="mobile-nav"
+        ref={mobileNavRef}
+        aria-hidden={!mobileOpen}
         className={`fixed inset-x-0 bottom-0 top-16 z-40 bg-ink/95 backdrop-blur-xl transition-opacity duration-300 md:hidden ${
           mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}

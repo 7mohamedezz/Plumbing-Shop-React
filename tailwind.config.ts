@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Cairo", "system-ui", "sans-serif"],
+        display: ["Noto Kufi Arabic", "Cairo", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

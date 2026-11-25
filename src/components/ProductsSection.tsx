@@ -19,7 +19,7 @@ const ProductsSection = () => {
     <section id="products" className="bg-brand py-16 md:py-24">
       <div className="container">
         <div className="mb-10 max-w-2xl md:mb-14">
-          <p className="mb-3 text-sm font-bold text-lime">كل ما تحتاجه تحت سقف واحد</p>
+          <p className="mb-3 text-sm font-bold text-ink">كل ما تحتاجه تحت سقف واحد</p>
           <h2 className="text-3xl font-extrabold text-white md:text-4xl">منتجاتنا</h2>
           <p className="mt-3 text-white/85">
             كل ما تحتاجه لمشاريع السباكة السكنية والتجارية — بجودة تختارها مرة واحدة.
