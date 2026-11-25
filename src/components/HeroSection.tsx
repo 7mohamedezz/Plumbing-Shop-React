@@ -1,23 +1,17 @@
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
-import heroImage from "@/assets/hero-plumbing.jpg";
+import heroImage from "@/assets/hero-bathroom.jpg";
 import PipeDivider from "@/components/PipeDivider";
 
-const starPoints = Array.from({ length: 24 }, (_, i) => {
-  const radius = i % 2 === 0 ? 50 : 39;
-  const angle = (Math.PI * i) / 12;
-  return `${(50 + radius * Math.cos(angle)).toFixed(1)},${(50 + radius * Math.sin(angle)).toFixed(1)}`;
-}).join(" ");
-
 const stats = [
-  { value: "5", label: "ماركات موجودة" },
+  { value: "60+", label: "ماركات موجودة" },
   { value: "توصيل", label: "جوه المنطقة" },
-  { value: "سؤال", label: "قبل ما تشتري" },
+  { value: "اسأل", label: "قبل ما تشتري" },
 ];
 
 const WaterFlood = ({ isOpen }: { isOpen: boolean }) => (
   <div
-    className={`pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[42%] overflow-hidden transition-opacity duration-700 ease-smooth ${
+    className={`pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[42%] overflow-hidden transition-opacity duration-700 ease-smooth ${
       isOpen ? "opacity-100" : "opacity-0"
     }`}
     aria-hidden="true"
@@ -82,10 +76,17 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative overflow-hidden bg-brand">
+      <img
+        src={heroImage}
+        alt="حمام مودرن بتجهيزات صحية"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-center"
+        width={1200}
+        height={800}
+      />
+      <div className="absolute inset-0 z-[1] bg-brand/45" aria-hidden="true" />
       <WaterFlood isOpen={isFlooding} />
       <div className="container relative z-10 pb-10 pt-12 md:pt-20">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="max-w-2xl">
+        <div className="max-w-3xl">
             <p className="mb-5 flex items-center gap-2 text-sm font-bold text-white/80">
               <span className="h-2.5 w-2.5 rounded-full bg-lime" />
               معرض أحمد بدوي · الكرنك الجديد، الأقصر
@@ -123,38 +124,8 @@ const HeroSection = () => {
                 </div>
               ))}
             </dl>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md">
-            <div
-              className="absolute -inset-3 rounded-full border-4 border-lime/80"
-              aria-hidden="true"
-            />
-            <div className="relative aspect-square overflow-hidden rounded-full border-[10px] border-cream shadow-2xl">
-              <img
-                src={heroImage}
-                alt="معرض أحمد بدوي للأدوات الصحية"
-                className="h-full w-full object-cover"
-                width={800}
-                height={800}
-              />
-            </div>
-
-            <div className="absolute -bottom-3 -left-3 z-10 grid h-28 w-28 place-items-center md:h-32 md:w-32">
-              <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" aria-hidden="true">
-                <polygon points={starPoints} fill="#BEF231" />
-              </svg>
-              <span className="relative text-center text-xs font-extrabold leading-snug text-ink">
-                اسأل قبل
-                <br />
-                ما تشتري
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
-
-      <PipeDivider onOpenChange={setIsFlooding} />
+      </div>
 
       <p
         aria-hidden="true"
@@ -162,6 +133,8 @@ const HeroSection = () => {
       >
         أحمد بدوي · أدوات صحية · سباكة
       </p>
+
+      <PipeDivider onOpenChange={setIsFlooding} />
     </section>
   );
 };

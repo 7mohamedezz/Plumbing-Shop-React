@@ -12,7 +12,7 @@ const invoiceItems = [
 
 const TaglineSection = () => {
   return (
-    <section className="overflow-hidden bg-cream py-16 md:py-24">
+    <section className="overflow-hidden bg-cream pb-0 pt-16 md:pt-24">
       <div className="container">
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div className="max-w-xl">

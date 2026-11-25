@@ -13,9 +13,9 @@ const AboutSection = () => {
       <div className="container">
         <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
-            <p className="mb-2 text-sm font-bold text-lime">قبل ما تختار</p>
+            <p className="mb-2 text-sm font-bold text-lime">إحنا بنشتغل إزاي</p>
             <h2 className="text-3xl font-extrabold text-white md:text-4xl">
-              اسأل عن المقاس الأول
+              ليه تختار معرض أحمد بدوي؟
             </h2>
           </div>
           <p className="max-w-md text-white/70">

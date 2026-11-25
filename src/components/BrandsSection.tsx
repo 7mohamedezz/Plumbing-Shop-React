@@ -30,13 +30,13 @@ const BrandsSection = () => {
           {brands.map((b) => (
             <div
               key={b.name}
-              className="flex aspect-[3/2] items-center justify-center rounded-xl border border-ink/10 bg-white p-6"
+              className="flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl border border-ink/10 bg-white p-4"
             >
               <img
                 src={b.logo}
                 alt={b.name}
                 loading="lazy"
-                className="max-h-16 w-4/5 object-contain"
+                className="max-h-24 w-full scale-125 object-contain"
               />
             </div>
           ))}

@@ -14,7 +14,7 @@ const PipeDivider = ({ onOpenChange }: PipeDividerProps) => {
   };
 
   return (
-    <div className="relative h-12 w-full md:h-16">
+    <div className="relative z-[3] h-12 w-full md:h-16">
       <svg
         viewBox="0 0 1440 64"
         preserveAspectRatio="none"
@@ -22,10 +22,10 @@ const PipeDivider = ({ onOpenChange }: PipeDividerProps) => {
         fill="none"
         aria-hidden="true"
       >
-        <rect y="20" width="1440" height="24" fill="#4C230B" />
-        <rect y="20" width="1440" height="6" fill="#713615" />
-        <rect x="180" y="12" width="16" height="40" fill="#35170A" />
-        <rect x="1180" y="12" width="16" height="40" fill="#35170A" />
+        <rect y="40" width="1440" height="24" fill="#4C230B" />
+        <rect y="40" width="1440" height="6" fill="#713615" />
+        <rect x="180" y="40" width="16" height="24" fill="#35170A" />
+        <rect x="1180" y="40" width="16" height="24" fill="#35170A" />
       </svg>
 
       <button
@@ -34,7 +34,7 @@ const PipeDivider = ({ onOpenChange }: PipeDividerProps) => {
         aria-label={isOpen ? "إغلاق صمام الماسورة" : "فتح صمام الماسورة"}
         aria-pressed={isOpen}
         title="اضغط للف الصمام"
-        className="absolute right-[16%] top-1/2 grid h-16 w-16 -translate-y-1/2 place-items-center rounded-full transition-transform duration-300 ease-smooth hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:h-20 md:w-20"
+        className="absolute bottom-0 right-[16%] grid h-16 w-16 place-items-center rounded-full transition-transform duration-300 ease-smooth hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream md:h-20 md:w-20"
       >
         <svg
           viewBox="0 0 80 80"
